@@ -41,7 +41,7 @@ def publish(client):
                 if valueId in keys:
                     topic = f'smartfox/{valueId}'
 
-                    result = client.publish(topic, value.text)
+                    result = client.publish(topic, float(value.text.split()[0]))
                     status = result[0]
 
                     if status == 0:
