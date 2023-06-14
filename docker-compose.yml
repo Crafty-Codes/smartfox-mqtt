@@ -3,7 +3,8 @@ version: "3"
 services:
   mqtt-broker:
     container_name: mqtt-broker
-    image: eclipse-mosquitto:latest    
+    image: eclipse-mosquitto:latest
+    restart: always 
     volumes:
       - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
     ports:
@@ -12,5 +13,6 @@ services:
   smartfox-client:
     container_name: smartfox-client
     build: ./
+    restart: always 
     depends_on:
       - mqtt-broker
